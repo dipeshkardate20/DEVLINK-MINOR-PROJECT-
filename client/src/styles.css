@@ -5,7 +5,35 @@
 :root {
   color-scheme: dark;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #05070d;
+  --bg-base: #05070d;
+  --bg-radial-a: rgba(56, 189, 248, 0.16);
+  --bg-radial-b: rgba(34, 197, 94, 0.11);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --glass-bg: rgba(11, 17, 29, 0.72);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --field-bg: rgba(2, 6, 23, 0.72);
+  --ghost-border: rgba(255, 255, 255, 0.12);
+  --ghost-text: #e2e8f0;
+  --ghost-hover-bg: rgba(56, 189, 248, 0.08);
+  --ghost-hover-border: rgba(56, 189, 248, 0.55);
+  background: var(--bg-base);
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+  --bg-base: #eef4ff;
+  --bg-radial-a: rgba(56, 189, 248, 0.24);
+  --bg-radial-b: rgba(14, 116, 144, 0.12);
+  --text-main: #0f172a;
+  --text-muted: #334155;
+  --glass-bg: rgba(255, 255, 255, 0.78);
+  --glass-border: rgba(15, 23, 42, 0.14);
+  --field-bg: rgba(255, 255, 255, 0.94);
+  --ghost-border: rgba(15, 23, 42, 0.15);
+  --ghost-text: #1e293b;
+  --ghost-hover-bg: rgba(59, 130, 246, 0.12);
+  --ghost-hover-border: rgba(59, 130, 246, 0.52);
 }
 
 body {
@@ -13,10 +41,11 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background:
-    radial-gradient(circle at 15% 10%, rgba(56, 189, 248, 0.16), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(34, 197, 94, 0.11), transparent 28%),
-    #05070d;
-  color: #f8fafc;
+    radial-gradient(circle at 15% 10%, var(--bg-radial-a), transparent 30%),
+    radial-gradient(circle at 80% 0%, var(--bg-radial-b), transparent 28%),
+    var(--bg-base);
+  color: var(--text-main);
+  transition: background 180ms ease, color 180ms ease;
 }
 
 button,
@@ -27,18 +56,18 @@ textarea {
 }
 
 .glass {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(11, 17, 29, 0.72);
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
   backdrop-filter: blur(18px);
 }
 
 .field {
   width: 100%;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(2, 6, 23, 0.72);
+  border: 1px solid var(--glass-border);
+  background: var(--field-bg);
   padding: 0.75rem 0.9rem;
-  color: #f8fafc;
+  color: var(--text-main);
   outline: none;
 }
 
@@ -71,13 +100,48 @@ textarea {
   justify-content: center;
   gap: 0.5rem;
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--ghost-border);
   padding: 0.75rem 1rem;
-  color: #e2e8f0;
+  color: var(--ghost-text);
   transition: border-color 160ms ease, background 160ms ease;
 }
 
 .btn-ghost:hover {
-  border-color: rgba(56, 189, 248, 0.55);
-  background: rgba(56, 189, 248, 0.08);
+  border-color: var(--ghost-hover-border);
+  background: var(--ghost-hover-bg);
+}
+
+[data-theme="light"] .bg-ink\/80,
+[data-theme="light"] .bg-ink\/90,
+[data-theme="light"] .bg-ink\/95 {
+  background-color: rgba(248, 250, 252, 0.92) !important;
+}
+
+[data-theme="light"] .text-white {
+  color: #0f172a !important;
+}
+
+[data-theme="light"] .text-slate-500 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .text-slate-400 {
+  color: #475569 !important;
+}
+
+[data-theme="light"] .text-slate-300 {
+  color: #334155 !important;
+}
+
+[data-theme="light"] .border-white\/10 {
+  border-color: rgba(15, 23, 42, 0.15) !important;
+}
+
+[data-theme="light"] .bg-slate-950\/80,
+[data-theme="light"] .bg-slate-800,
+[data-theme="light"] .bg-black\/10,
+[data-theme="light"] .bg-black\/20,
+[data-theme="light"] .bg-white\/\[0\.03\],
+[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(226, 232, 240, 0.65) !important;
 }

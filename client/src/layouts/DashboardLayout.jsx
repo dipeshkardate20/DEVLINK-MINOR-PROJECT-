@@ -1,5 +1,5 @@
 import { Link, NavLink, Outlet, useNavigate } from "react-router-dom";
-import { Compass, FolderKanban, LayoutDashboard, LogOut, User } from "lucide-react";
+import { Compass, FolderKanban, LayoutDashboard, LogOut, Settings, User } from "lucide-react";
 import Logo from "../components/common/Logo";
 import useAuth from "../hooks/useAuth";
 
@@ -7,7 +7,8 @@ const navItems = [
   { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/discover", label: "Discover", icon: Compass },
   { to: "/projects", label: "Projects", icon: FolderKanban },
-  { to: "/profile", label: "Profile", icon: User }
+  { to: "/profile", label: "Profile", icon: User },
+  { to: "/settings", label: "Settings", icon: Settings }
 ];
 
 const DashboardLayout = () => {
@@ -58,7 +59,7 @@ const DashboardLayout = () => {
             </div>
           </div>
         </header>
-        <div className="fixed bottom-0 left-0 right-0 z-30 grid grid-cols-4 border-t border-white/10 bg-ink/95 lg:hidden">
+        <div className="fixed bottom-0 left-0 right-0 z-30 grid grid-cols-5 border-t border-white/10 bg-ink/95 lg:hidden">
           {navItems.map(({ to, label, icon: Icon }) => (
             <NavLink key={to} to={to} className={({ isActive }) => `grid place-items-center gap-1 px-2 py-3 text-xs ${isActive ? "text-sky-300" : "text-slate-400"}`}>
               <Icon size={18} />

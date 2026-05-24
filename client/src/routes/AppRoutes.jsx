@@ -10,6 +10,7 @@ import Profile from "../pages/Profile";
 import EditProfile from "../pages/EditProfile";
 import DiscoverDevelopers from "../pages/DiscoverDevelopers";
 import ProjectsFeed from "../pages/ProjectsFeed";
+import Settings from "../pages/Settings";
 
 const AppRoutes = () => (
   <Routes>
@@ -26,6 +27,7 @@ const AppRoutes = () => (
         <Route path="/profile/edit" element={<EditProfile />} />
         <Route path="/discover" element={<DiscoverDevelopers />} />
         <Route path="/projects" element={<ProjectsFeed />} />
+        <Route path="/settings" element={<Settings />} />
       </Route>
     </Route>
   </Routes>
